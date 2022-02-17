@@ -17,6 +17,12 @@ namespace CleanBankAccountKata.Interactors
         internal void Deposit(decimal amount)
         {
             account.Balance += amount;
+            account.Transactions.Add(new Transaction()
+            {
+                Account = account,
+                Amount = amount,
+                Balance = account.Balance
+            });
         }
     }
 }
