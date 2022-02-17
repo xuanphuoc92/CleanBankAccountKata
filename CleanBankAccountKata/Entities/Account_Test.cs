@@ -13,6 +13,8 @@ namespace CleanBankAccountKata.Entities
             Account account = new Account();
             Assert.Equal(0, account.Id);
             Assert.Equal(0, account.Balance);
+
+            Assert.Empty(account.Transactions);
         }
     }
 }
