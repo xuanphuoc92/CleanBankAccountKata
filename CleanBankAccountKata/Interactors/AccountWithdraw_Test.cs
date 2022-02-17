@@ -16,9 +16,9 @@ namespace CleanBankAccountKata.Interactors
             AccountWithdraw withdraw = new AccountWithdraw(account);
 
             Assert.Equal(0, account.Balance);
-            deposit.Deposit(100);
-            Assert.Equal(100, account.Balance);
-            withdraw.Withdraw(20);
+            deposit.Deposit(100.05M);
+            Assert.Equal(100.05M, account.Balance);
+            withdraw.Withdraw(20.05M);
             Assert.Equal(80, account.Balance);
         }
     }

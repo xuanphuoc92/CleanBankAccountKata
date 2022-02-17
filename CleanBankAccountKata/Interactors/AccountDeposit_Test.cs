@@ -15,8 +15,8 @@ namespace CleanBankAccountKata.Interactors
             AccountDeposit deposit = new AccountDeposit(account);
 
             Assert.Equal(0, account.Balance);
-            deposit.Deposit(100);
-            Assert.Equal(100, account.Balance);
+            deposit.Deposit(100.05M);
+            Assert.Equal(100.05M, account.Balance);
         }
     }
 }

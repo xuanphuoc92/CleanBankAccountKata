@@ -14,7 +14,7 @@ namespace CleanBankAccountKata.Interactors
             this.account = account;
         }
 
-        internal void Deposit(int amount)
+        internal void Deposit(decimal amount)
         {
             account.Balance += amount;
         }
