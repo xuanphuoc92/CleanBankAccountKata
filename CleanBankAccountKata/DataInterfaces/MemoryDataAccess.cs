@@ -5,27 +5,32 @@ using System.Text;
 
 namespace CleanBankAccountKata.DataInterfaces
 {
-    class MemoryDataAccess
+    class MemoryDataAccess<TObject, TKey>
     {
-        private Dictionary<int, Account> keyValues = new Dictionary<int, Account>();
+        private Dictionary<TKey, TObject> keyValues = new Dictionary<TKey, TObject>();
+        private Func<TObject, TKey> keyFunc;
+
+        public MemoryDataAccess(Func<TObject, TKey> keyFunc)
+        {
+            this.keyFunc = keyFunc;
+        }
 
         internal int Count => keyValues.Count;
 
-        internal void Save(Account account)
+        internal void Save(TObject objectToSave)
         {
-            if (account.Id == 0)
-                account.Id = keyValues.Count + 1;
-            if (keyValues.ContainsKey(account.Id))
-                keyValues[account.Id] = account;
+            TKey key = keyFunc(objectToSave);
+            if (keyValues.ContainsKey(key))
+                keyValues[key] = objectToSave;
             else
-                keyValues.Add(account.Id, account);
+                keyValues.Add(key, objectToSave);
         }
 
-        internal Account Load(int id)
+        internal TObject Load(TKey key)
         {
-            if (keyValues.ContainsKey(id))
-                return keyValues[id];
-            return null;
+            if (keyValues.ContainsKey(key))
+                return keyValues[key];
+            return default(TObject);
         }
     }
 }

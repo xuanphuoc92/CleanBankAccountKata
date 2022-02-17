@@ -7,10 +7,15 @@ namespace CleanBankAccountKata.DataInterfaces
 {
     class AccountContext
     {
-        private MemoryDataAccess dataAccess = new MemoryDataAccess();
+        private MemoryDataAccess<Account, int> dataAccess = new MemoryDataAccess<Account, int>(account => account.Id);
 
         internal int Count => dataAccess.Count;
-        internal void Save(Account account) => dataAccess.Save(account);
+        internal void Save(Account account)
+        {
+            if (account.Id == 0)
+                account.Id = Count + 1;
+            dataAccess.Save(account);
+        }
         internal Account Load(int id) => dataAccess.Load(id);
     }
 }
