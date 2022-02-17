@@ -17,6 +17,12 @@ namespace CleanBankAccountKata.Interactors
         internal void Withdraw(decimal amount)
         {
             account.Balance -= amount;
+            account.Transactions.Add(new Transaction()
+            {
+                Account = account,
+                Amount = amount * -1,
+                Balance = account.Balance
+            });
         }
     }
 }
