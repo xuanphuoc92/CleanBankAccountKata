@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Interactors\" />
     <Folder Include="DataInterfaces\" />
     <Folder Include="Frontend\" />
