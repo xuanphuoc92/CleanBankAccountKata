@@ -8,7 +8,7 @@ So I choose the Bank Account kata for this little experiment. You can find a ver
 
 <i>[Image source and discussion](https://softwareengineering.stackexchange.com/questions/380251/clean-architecture-what-is-the-view-model)</i>
 
-I have to admit, this kata and my solution here may not be perfect, since this is also the first time I attempted it. So if you feel there is any room for improvement, don't hesitate to comment and let me know. In fact, after completing it first time and reading some discussions, I removed some wrong and unnecessary constraints for the instructions below; though, you may still find such constraints within the solution I committed. I also have to admit the boundary and data classes in a few last steps can be a bit overkill and their recommended design is likely not be correct. However, I think being overkill a bit should be part of a kata to provide a good learning experience.
+I have to admit, this kata and my solution here may not be perfect, since this is also the first time I attempted it. So if you feel there is any room for improvement, don't hesitate to comment and let me know. In fact, after completing it first time and reading some discussions, I removed some wrong and unnecessary constraints for the instructions below; though, you may still find such constraints within the solution I committed. I also have to admit the boundary and data classes in a few last steps can be a bit overkill and their recommended design is likely not correct and practical. However, I think being overkill a bit should be part of a kata to provide a good learning experience.
 
 ## Prerequisite
 
