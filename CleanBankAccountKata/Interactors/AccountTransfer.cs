@@ -14,13 +14,13 @@ namespace CleanBankAccountKata.Interactors
             this.account = account;
         }
 
-        internal void Transfer(decimal amount, Account other)
+        internal void Transfer(decimal amount, Account other, DateTime? date = null)
         {
             AccountWithdraw withdraw = new AccountWithdraw(account);
             AccountDeposit deposit = new AccountDeposit(other);
 
-            withdraw.Withdraw(amount);
-            deposit.Deposit(amount);
+            withdraw.Withdraw(amount, date);
+            deposit.Deposit(amount, date);
         }
     }
 }

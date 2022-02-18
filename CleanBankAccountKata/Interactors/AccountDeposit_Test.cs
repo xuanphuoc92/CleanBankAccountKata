@@ -25,6 +25,25 @@ namespace CleanBankAccountKata.Interactors
             Assert.Equal(account, transaction.Account);
             Assert.Equal(100.05M, transaction.Amount);
             Assert.Equal(100.05M, transaction.Balance);
+            Assert.Equal(DateTime.Today, transaction.Date);
+        }
+
+        [Fact]
+        public void TestMockDate()
+        {
+            Account account = new Account();
+            AccountDeposit deposit = new AccountDeposit(account);
+            deposit.Deposit(100.05M, DateHelper.Get("20/01/2022"));
+
+            Assert.Equal(100.05M, account.Balance);
+            Assert.Single(account.Transactions);
+
+            Transaction transaction;
+            transaction = account.Transactions[0];
+            Assert.Equal(account, transaction.Account);
+            Assert.Equal(100.05M, transaction.Amount);
+            Assert.Equal(100.05M, transaction.Balance);
+            Assert.Equal(DateHelper.Get("20/01/2022"), transaction.Date);
         }
     }
 }

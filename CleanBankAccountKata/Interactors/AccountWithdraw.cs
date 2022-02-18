@@ -14,9 +14,9 @@ namespace CleanBankAccountKata.Interactors
             this.account = account;
         }
 
-        internal void Withdraw(decimal amount)
+        internal void Withdraw(decimal amount, DateTime? date = null)
         {
-            account.Transact(amount * -1);
+            account.Transact(amount * -1, date);
         }
     }
 }

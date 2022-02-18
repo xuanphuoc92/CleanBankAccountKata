@@ -11,15 +11,17 @@ namespace CleanBankAccountKata.Entities
         public decimal Balance { get; set; }
         public List<Transaction> Transactions { get; private set; } = new List<Transaction>();
 
-        public void Transact(decimal amount)
+        public void Transact(decimal amount, DateTime? date = null)
         {
             Balance += amount;
-            Transactions.Add(new Transaction()
+            var transaction = new Transaction()
             {
                 Account = this,
                 Amount = amount,
                 Balance = Balance
-            });
+            };
+            if (date != null) transaction.Date = date.Value;
+            Transactions.Add(transaction);
         }
     }
 }
