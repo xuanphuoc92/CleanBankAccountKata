@@ -5,11 +5,12 @@ using System.Text;
 namespace CleanBankAccountKata.Interactors
 {
     [Serializable]
-    class StatementOutputData
+    public class StatementOutputData
     {
         public int AccountId { get; set; }
+        public List<LineItem> LineItems { get; set; } = new List<LineItem>();
 
-        public class LineItems
+        public class LineItem
         {
             public DateTime Date { get; set; }
             public decimal? Credit { get; set; }

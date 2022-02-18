@@ -4,9 +4,7 @@ using System.Text;
 
 namespace CleanBankAccountKata.Interactors
 {
-    [Serializable]
-    public class StatementInputData
+    public interface StatementOutputBoundary
     {
-        public int AccountId { get; set; }
     }
 }
