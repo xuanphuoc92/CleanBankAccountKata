@@ -2,7 +2,7 @@
 
 I have known Uncle Bob's Clean Architecture model for awhile, but did not understand it thoroughly and know how to apply it. And since I find katas as one of the most effective ways in learning code, then why not try having a kata that can help learn the Clean Architecture model?
 
-So I choose the Bank Account kata for this little experiment. You can find a version from [Sandro Macuso](https://github.com/sandromancuso/Bank-kata), which focuses on learning rules of Object Calisthenic. For this kata, I think the focus is more on Clean Architecture model from [Uncle Bob](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), specifically based on this model from the book: 
+So I choose the Bank Account kata for this little experiment. You can find a version of Bank Account kata from [Sandro Macuso](https://github.com/sandromancuso/Bank-kata), which focuses on learning rules of Object Calisthenic. For this kata, I think the focus is more on Clean Architecture model from [Uncle Bob](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html), specifically based on this model from his book: 
 
 ![typical clean architecture model](https://i.stack.imgur.com/K44FQ.jpg)
 
