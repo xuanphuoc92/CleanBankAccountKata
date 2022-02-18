@@ -8,6 +8,12 @@ namespace CleanBankAccountKata.Interactors
 {
     public class AccountWithdraw_Test
     {
+        private static void TestBaseWithdrawal(Account account)
+        {
+            Assert.Equal(80, account.Balance);
+            Assert.Equal(2, account.Transactions.Count);
+        }
+
         [Fact]
         public void Test()
         {
@@ -15,16 +21,10 @@ namespace CleanBankAccountKata.Interactors
             AccountDeposit deposit = new AccountDeposit(account);
             AccountWithdraw withdraw = new AccountWithdraw(account);
 
-            Assert.Equal(0, account.Balance);
-            Assert.Empty(account.Transactions);
             deposit.Deposit(100.05M);
-            Assert.Equal(100.05M, account.Balance);
-            Assert.Single(account.Transactions);
-
             withdraw.Withdraw(20.05M);
-            Assert.Equal(80, account.Balance);
-            Assert.Equal(2, account.Transactions.Count);
 
+            TestBaseWithdrawal(account);
             Assert.Equal(DateTime.Today, account.Transactions[1].Date);
         }
 
@@ -36,13 +36,9 @@ namespace CleanBankAccountKata.Interactors
             AccountWithdraw withdraw = new AccountWithdraw(account);
 
             deposit.Deposit(100.05M, DateHelper.Get("20/01/2022"));
-            Assert.Equal(100.05M, account.Balance);
-            Assert.Single(account.Transactions);
-
             withdraw.Withdraw(20.05M, DateHelper.Get("21/01/2022"));
-            Assert.Equal(80, account.Balance);
-            Assert.Equal(2, account.Transactions.Count);
 
+            TestBaseWithdrawal(account);
             Assert.Equal(DateHelper.Get("21/01/2022"), account.Transactions[1].Date);
         }
     }
