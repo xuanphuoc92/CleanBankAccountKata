@@ -6,6 +6,7 @@ using Xunit;
 
 namespace CleanBankAccountKata.Interactors
 {
+    [Collection("Unit")]
     public class AccountTransfer_Test
     {
         private static void Setup(out Account account1, out Account account2, out AccountDeposit deposit, out AccountTransfer transfer)

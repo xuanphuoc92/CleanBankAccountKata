@@ -8,11 +8,11 @@ using Xunit;
 
 namespace CleanBankAccountKata.Interactors
 {
+    [Collection("Unit")]
     public class Statement_Test
     {
         public static void SetupAccountForStatementTest()
         {
-            Thread.Sleep(20); // Delay a bit so that concurrent tests don't clash each other. Consider to remove this if it is not xUnit
             AccountContext.Reset();
 
             Account account = new Account();

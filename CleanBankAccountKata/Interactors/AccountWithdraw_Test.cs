@@ -6,6 +6,7 @@ using Xunit;
 
 namespace CleanBankAccountKata.Interactors
 {
+    [Collection("Unit")]
     public class AccountWithdraw_Test
     {
         private static void TestBaseWithdrawal(Account account)

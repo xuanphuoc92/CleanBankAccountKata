@@ -6,6 +6,7 @@ using Xunit;
 
 namespace CleanBankAccountKata.DataInterfaces
 {
+    [Collection("Unit")]
     public class AccountContext_Test
     {
         [Fact]

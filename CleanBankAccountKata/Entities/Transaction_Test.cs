@@ -5,6 +5,7 @@ using Xunit;
 
 namespace CleanBankAccountKata.Entities
 {
+    [Collection("Entity")]
     public class Transaction_Test
     {
         [Fact]

@@ -6,6 +6,7 @@ using Xunit;
 
 namespace CleanBankAccountKata.Frontend
 {
+    [Collection("Unit")]
     public class StringStatement_Test
     {
         [Fact]
