@@ -18,7 +18,8 @@ namespace CleanBankAccountKata.DataInterfaces
             Assert.Equal(80.05M, account.Balance);
             Assert.Equal(2, account.Transactions.Count);
 
-            AccountContext context = new AccountContext();
+            AccountContext.Reset();
+            AccountContext context = AccountContext.Get();
             Assert.Equal(0, context.Count);
 
             context.Save(account);

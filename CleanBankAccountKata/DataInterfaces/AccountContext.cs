@@ -17,5 +17,13 @@ namespace CleanBankAccountKata.DataInterfaces
             dataAccess.Save(account);
         }
         internal Account Load(int id) => dataAccess.Load(id);
+
+        private AccountContext() { }
+        private static AccountContext context = new AccountContext();
+        public static AccountContext Get() => context;
+        public static void Reset()
+        {
+            context = new AccountContext();
+        }
     }
 }
