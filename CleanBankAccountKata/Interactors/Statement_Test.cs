@@ -3,6 +3,7 @@ using CleanBankAccountKata.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using Xunit;
 
 namespace CleanBankAccountKata.Interactors
@@ -11,6 +12,7 @@ namespace CleanBankAccountKata.Interactors
     {
         public static void SetupAccountForStatementTest()
         {
+            Thread.Sleep(20); // Delay a bit so that concurrent tests don't clash each other. Consider to remove this if it is not xUnit
             AccountContext.Reset();
 
             Account account = new Account();

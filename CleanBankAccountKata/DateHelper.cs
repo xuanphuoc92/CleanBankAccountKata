@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace CleanBankAccountKata.Interactors
+namespace CleanBankAccountKata
 {
     internal class DateHelper
     {
