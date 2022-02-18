@@ -8,7 +8,7 @@ So I choose the Bank Account kata for this little experiment. You can find a ver
 
 <i>[Image source and discussion](https://softwareengineering.stackexchange.com/questions/380251/clean-architecture-what-is-the-view-model)</i>
 
-I have to admit, this kata and my solution here may not be perfect, since this is also the first time I attempted it. So if you feel there is any room for improvement, don't hesitate to comment and let me know. In fact, after completing it first time and reading some discussions, I removed some wrong and unnecessary constraints for the instructions below; though, you may still find such constraints within the solution I committed.
+I have to admit, this kata and my solution here may not be perfect, since this is also the first time I attempted it. So if you feel there is any room for improvement, don't hesitate to comment and let me know. In fact, after completing it first time and reading some discussions, I removed some wrong and unnecessary constraints for the instructions below; though, you may still find such constraints within the solution I committed. I also have to admit the boundary and data classes in a few last steps can be a bit overkill and their recommended design is likely not be correct. However, I think being overkill a bit should be part of a kata to provide a good learning experience.
 
 ## Prerequisite
 
@@ -128,4 +128,20 @@ Implement the classes and functions below using TDD as much as possible (if not 
 18. Implement `Statement` class in Interactors, and `StringStatementController` and `StringStatementPresenter` classes in Frontend. The implementation should use the 4 boundaries and data structures in previous steps: `StatementInputData`, `StatementOutputData`, `StatementInputBoundary`, and `StatementOutputBoundary`. Particularly, the `Statement` class must be implementing from `StatementInputBoundary`, and the `StringStatementPresenter` must be implementing from `StatementOutputBoundary`. At the end, `StringStatementPresenter` should have the following method:
 
 ```
++ Print(): string
 ```
+
+`Print()` should create a output string as following sample below:
+
+```
+Account: 1
+Date || Credit || Debit || Balance
+20/01/2022 || 100.00 ||  || 100.00
+21/01/2022 ||  || 20.00 || 80.00
+```
+
+19. Review and refactor, if possible, so that the following constraints can be enforced:
+
+- No reference of any zone in Entities zone
+- No reference of Frontend and Backend in Entities, Interactors, and DataInterfaces zones .If `MemoryDataAccess` is moved to Backend zone, it can be an exception as the default data access. However, all other implementations of `IDataAccess` in the future (e.g. `LogFileDataAccess`, `SQLDataAccess`, `MongoDbDataAccess`, etc.) should stay in Backend zone. At this point, there is no further implementations of `IDataAccess` in this kata, but it is very likely they may appear in the future katas from this one.
+- No reference of **DataInterfaces and Backend** in **Interactors and Frontend**.
