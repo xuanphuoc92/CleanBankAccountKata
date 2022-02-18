@@ -93,13 +93,13 @@ Implement the classes and functions below using TDD as much as possible (if not 
 
 `Count()` returns the number of account stored in the data storage so far. You may consider having `Count()` method replaced with get-only property `+ Count: int = 0`.
 
-11. Refactor/extract the functions of `AccountContext` into a class named `MemoryDataAccess`. `AccountContext` then uses the functions from a `MemoryDataAccess` instance.
+11. Refactor/extract the functions of `AccountContext` into a class named `MemoryDataAccess`. Then, `AccountContext` uses the functions from a `MemoryDataAccess` instance.
 
 12. Refactor the `MemoryDataAccess` into a generic class `MemoryDataAccess<TObject, TKey>`. The instance used in `AccountContext` should be of type `MemoryDataAccess<Account, int>`. Recommendation: create a field `Func<TObject, TKey>` for the `MemoryDataAccess<TObject, TKey>` to make the generic form possible.
 
 13. Refactor/extract interface `IDataAccess<TObject, TKey>` from `MemoryDataAccess<TObject, TKey>`, and replace the field in `AccountContext` from `MemoryDataAccess<Account, int>` to `IDataAccess<Account, int>`.
 
-14. Implement an additional parameter `date` for methods `AccountDeposit`, `AccountWithdraw`, and `AccountTransfer` for them to mock different dates of transactions.
+14. Implement an additional parameter `date` for methods of `AccountDeposit`, `AccountWithdraw`, and `AccountTransfer`. This is for them to mock different dates of transactions.
 
 15. Implement `StatementInputData` class in Interactors
 
