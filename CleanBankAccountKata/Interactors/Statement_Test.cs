@@ -9,8 +9,7 @@ namespace CleanBankAccountKata.Interactors
 {
     public class Statement_Test
     {
-        [Fact]
-        public void Test()
+        public static void SetupAccountForStatementTest()
         {
             AccountContext.Reset();
 
@@ -22,10 +21,16 @@ namespace CleanBankAccountKata.Interactors
             withdraw.Withdraw(20, DateHelper.Get("21/01/2022"));
 
             AccountContext.Get().Save(account);
+        }
+
+        [Fact]
+        public void Test()
+        {
+            SetupAccountForStatementTest();
 
             Statement statement = new Statement();
             var outputData = statement.GetStatementOutputData(new StatementInputData() { AccountId = 1 });
-            
+
             Assert.Equal(1, outputData.AccountId);
             Assert.Equal(2, outputData.LineItems.Count);
 

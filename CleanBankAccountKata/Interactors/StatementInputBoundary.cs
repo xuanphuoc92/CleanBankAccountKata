@@ -6,6 +6,8 @@ namespace CleanBankAccountKata.Interactors
 {
     public interface StatementInputBoundary
     {
-        StatementOutputData GetStatementOutputData(StatementInputData input);
+        void RequestStatement(StatementInputData inputData, StatementOutputBoundary outputBoundary);
+
+        public static StatementInputBoundary Get() => new Statement();
     }
 }
